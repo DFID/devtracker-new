@@ -1,0 +1,33 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET		/api/1/access/activity 		        				controllers.Application.activity
+
+GET     /api/countries                      				controllers.JSONDataApi.countries
+GET     /api/country/:id                    				controllers.JSONDataApi.countryWithCode(id)
+GET     /api/country/resultsCount/:id       				controllers.JSONDataApi.resultsCount(id)
+GET     /api/country/sectorBreakdown/:id    				controllers.Aggregator.sectorBreakdown(id)
+GET     /api/country/budget/:id             				controllers.Aggregator.countryBudget(id)
+GET     /api/country/stats/:id              				controllers.JSONDataApi.countriesRegionsStatsWithCode(id)
+
+GET 	/api/country/projects/projectsHierarchy1ForCountryCode/:id		controllers.Aggregator.projectsHierarchy1ForCountryCode(id)
+GET 	/api/country/projects/allHierarchy1Project/					controllers.Aggregator.allHierarchy1Project
+
+GET 	/api/projects/documents								controllers.Aggregator.allDocumentsForAllProjects
+
+GET     /api/country/locations/:id              			controllers.Aggregator.locations(id)
+GET		/api/country/projectBudgetsByYear/:id				controllers.Aggregator.projectBudgetByYear(id)
+GET 	/api/dfidTotalBudget								controllers.Aggregator.dfidTotalBudget
+GET     /api/sectorHierarchies                  			controllers.JSONDataApi.sectorHierarchies
+GET     /api/sectorHierarchy/:id                			controllers.JSONDataApi.sectorHierarchiesWithCode(id)
+GET     /api/sectorHierarchyName/:id            			controllers.JSONDataApi.sectorHierarchiesHigherNameWithCode(id)
+
+GET 	/api/projects/documents/						    controllers.Aggregator.allDocumentsForAllProjects
+
+#Pages API
+GET     /api/page/country/:id               				controllers.PagesAPI.country(id)
+
+GET 	/api/page/country/projects/:id						controllers.PagesAPI.countryProjects(id)
+
+GET 	/api/page/projects/documents/						controllers.PagesAPI.allDocumentsForAllProjects

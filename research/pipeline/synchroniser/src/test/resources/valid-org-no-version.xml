@@ -1,0 +1,615 @@
+﻿<iati-organisations generated-datetime="2013-07-19T13:23:16">
+  <ir:registry-record xmlns:ir="http://iatiregistry.org/ns/record#" xml:lang="en" file-id="GB-1" source-url="http://projects.dfid.gov.uk/iati_files/organisation.xml" publisher-id="GB-1" publisher-role="Funding" contact-email="ppisupport@dfid.gov.uk" donor-id="GB-1" donor-type="10" donor-country="GB" title="DFID Organisation File" activity-period="All Periods" last-updated-datetime="2013-07-19T13:23:16" generated-datetime="2013-07-19T13:23:16" verification-status="1" format="xml" license="IATI" />
+  <iati-organisation last-updated-datetime="2013-07-19T13:23:16" xml:lang="en" default-currency="GBP">
+  <iati-identifier>GB-1</iati-identifier>
+  <name>UK Department for International Development</name>
+  <total-budget>
+    <period-start iso-date="2010-04-01">01 April 2010</period-start>
+    <period-end iso-date="2011-03-31">31 March 2011</period-end>
+    <value value-date="2010-10-20">7800000000</value>
+  </total-budget>
+  <total-budget>
+    <period-start iso-date="2011-04-01">01 April 2011</period-start>
+    <period-end iso-date="2012-03-31">31 March 2012</period-end>
+    <value value-date="2010-10-20">8100000000</value>
+  </total-budget>
+  <total-budget>
+    <period-start iso-date="2012-04-01">01 April 2012</period-start>
+    <period-end iso-date="2013-03-31">31 March 2013</period-end>
+    <value value-date="2010-10-20">8800000000</value>
+  </total-budget>
+  <total-budget>
+    <period-start iso-date="2013-04-01">01 April 2013</period-start>
+    <period-end iso-date="2014-03-31">31 March 2014</period-end>
+    <value value-date="2010-10-20">11300000000</value>
+  </total-budget>
+  <total-budget>
+    <period-start iso-date="2014-04-01">01 April 2014</period-start>
+    <period-end iso-date="2015-03-31">31 March 2015</period-end>
+    <value value-date="2010-10-20">11500000000</value>
+  </total-budget>
+   <recipient-country-budget>
+    <recipient-country code="AF">Afghanistan</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">199500000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="AF">Afghanistan</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">178000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="BD">Bangladesh</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">238157000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="BD">Bangladesh</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">265142000</value>
+  </recipient-country-budget>
+   <recipient-country-budget>
+    <recipient-country code="MM">Burma</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">56000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="MM">Burma</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">60000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="KH">Cambodia</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">4983000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="CD">Congo, Democratic Republic</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">150000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="CD">Congo, Democratic Republic</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">170000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ET">Ethiopia</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">340679000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ET">Ethiopia</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">364994000</value>
+  </recipient-country-budget>
+   <recipient-country-budget>
+    <recipient-country code="GH">Ghana</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">95000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="GH">Ghana</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">90000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="IN">India</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">220000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="IN">India</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">210000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="PS">Occupied Palestinian Territories</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">88368000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="KE">Kenya</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">143000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="KE">Kenya</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">136000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="LR">Liberia</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">9000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="LR">Liberia</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">3000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="MW">Malawi</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">92207000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="MW">Malawi</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">90843000</value>
+  </recipient-country-budget>
+ <recipient-country-budget>
+    <recipient-country code="MZ">Mozambique</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">64000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="MZ">Mozambique</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">78000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="NP">Nepal</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">103804000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="NP">Nepal</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">93163000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="NG">Nigeria</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">275000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="NG">Nigeria</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">275000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="PK">Pakistan</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">355000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="PK">Pakistan</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">405000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="RW">Rwanda</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">97595000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="RW">Rwanda</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">96725000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SL">Sierra Leone</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">81000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SL">Sierra Leone</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">79000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SO">Somalia</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">59000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SO">Somalia</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">59000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ZA">South Africa</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">21205000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ZA">South Africa</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">16600000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SS">South Sudan</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">91000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SS">South Sudan</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">100000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SD">Sudan</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">42000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="SD">Sudan</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">37000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="TZ">Tanzania</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">186800000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="TZ">Tanzania</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">202500000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="UG">Uganda</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">95000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="UG">Uganda</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">90000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="VN">Vietnam</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">17199000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="VN">Vietnam</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">9004000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="YE">Yemen</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">68700000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="YE">Yemen</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">71500000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ZM">Zambia</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">70000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ZM">Zambia</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">72000000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ZW">Zimbabwe</recipient-country>
+    <period-start iso-date="2013-04-01">Start of Financial Year 2013/14</period-start>
+    <period-end iso-date="2014-03-31">End of Financial Year 2013/14</period-end>
+    <value currency="GBP" value-date="2013-04-01">119200000</value>
+  </recipient-country-budget>
+  <recipient-country-budget>
+    <recipient-country code="ZW">Zimbabwe</recipient-country>
+    <period-start iso-date="2014-04-01">Start of Financial Year 2014/15</period-start>
+    <period-end iso-date="2015-03-31">End of Financial Year 2014/15</period-end>
+    <value currency="GBP" value-date="2014-04-01">117200000</value>
+  </recipient-country-budget>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208445/annual-report-accounts2013-13.pdf" format="application/pdf">
+    <title>DFID Annual Report and Accounts 2012-13</title>
+    <category code="B01">Annual report</category>
+    <category code="B06">Audit Report</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/67658/DFID-business-plan.pdf" format="application/pdf">
+    <title>DFID Business Plan 2012-2015</title>
+    <category code="B02">Strategy paper</category>
+	<category code="B04">Aid Allocation Policy</category>
+  </document-link>
+  <document-link url="http://transparency.number10.gov.uk/business-plan/12" format="text/html">
+    <title>DFID Business Plan 2012-2015 (2013 update)</title>
+    <category code="B02">Strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/67317/SID-2012.pdf" format="application/pdf">
+    <title>Statistics in International Development 2012</title>
+    <category code="B01">Annual report</category>
+  </document-link>
+  <document-link url="http://icai.independent.gov.uk/publications/icai-reports/ " format="text/html">
+    <title>Independent Commission for Aid Impact (ICAI) Reports</title>
+   <category code="B06">Audit Report</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/137328/Strengthened-approach-budget-support-Tecnical-Note.pdf.pdf" format="application/pdf">
+    <title>Strengthened Approach to Budget Support</title>
+    <category code="B02">Strategy paper</category>
+	<category code="B04">Aid Allocation Policy</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/organisations/department-for-international-development/about/procurement" format="text/html">
+    <title>Procurement at DFID</title>
+    <category code="B05">Procurement Policy and Procedure</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209876/Afghanistan1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Afghanistan</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209856/Afghanistan-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Afghanistan - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209262/Bangladesh.pdf">
+    <title>DFID Operational Plan for Bangladesh</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208691/Bangladesh-summary.pdf">
+    <title>DFID Operational Plan for Bangladesh - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209272/Overseas-Territories.pdf">
+    <title>DFID Operational Plan for British Overseas Territories</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209858/overseas-territories-summary1.pdf">
+    <title>DFID Operational Plan for British Overseas Territories - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209271/Burma.pdf">
+    <title>DFID Operational Plan for Burma</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208899/Burma-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Burma - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/67517/burundi-2011.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Burundi</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209329/Central-Asia.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Central Asia</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208698/Central-Asia-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Central Asia - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209413/DRC1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Congo, Democratic Republic</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209839/DRC-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Congo, Democratic Republic - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208967/Ethiopia.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Ethiopia</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209845/Ethiopia-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Ethiopia - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209470/Ghana1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Ghana</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208709/Ghana-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Ghana - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208914/India.pdf" format="application/pdf">
+    <title>DFID Operational Plan for India</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208712/India-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for India - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/67574/iraq-2011.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Iraq</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/67383/occupied-palestinian-territories-2011.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Occupied Palestinian Territories</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209268/Kenya.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Kenya</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208716/Kenya-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Kenya - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209414/Liberia1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Liberia</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208717/Liberia-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Liberia - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209472/Malawi1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Malawi</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208719/Malawi-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Malawi - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209258/Mozambique.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Mozambique</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209851/Mozambique-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Mozambique - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208964/Nepal.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Nepal</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209837/Nepal-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Nepal - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209259/Nigeria.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Nigeria</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208882/Nigeria-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Nigeria - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209443/Pakistan2.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Pakistan</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209842/Pakistan-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Pakistan - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/67358/rwanda-2011.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Rwanda</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209408/Sierra_Leone1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Sierra Leone</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209868/Sierra-Leone-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Sierra Leone - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209263/Somalia.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Somalia</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+ <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208913/Somalia-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Somalia - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209310/Southern-Africa.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Southern Africa</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209836/Southern-Africa-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Southern Africa - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208888/South-Sudan-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for South Sudan - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209164/South-Sudan.pdf" format="application/pdf">
+    <title>DFID Operational Plan for South Sudan</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209587/Sudan2.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Sudan</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209844/Sudan-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Sudan - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209261/Tanzania.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Tanzania</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209849/Tanzania-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Tanzania - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/67416/uganda-2011.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Uganda</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209471/Vietnam2.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Vietnam and Cambodia</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209852/Vietnam-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Vietnam and Cambodia - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+ <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208953/Yemen_.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Yemen</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209869/Yemen-summary2.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Yemen - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209417/Zambia1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Zambia</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/208897/Zambia-summary.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Zambia - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+  <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209083/Zimbabwe_.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Zimbabwe</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+ <document-link url="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/209859/Zimbabwe-summary1.pdf" format="application/pdf">
+    <title>DFID Operational Plan for Zimbabwe - Summary</title>
+    <category code="B03">Country strategy paper</category>
+  </document-link>
+</iati-organisation>
+</iati-organisations>

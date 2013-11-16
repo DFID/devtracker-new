@@ -1,0 +1,2 @@
+#!/bin/sh
+exec java -Xmx4g -XX:MaxPermSize=1024m -jar ./sbt-launch.jar "$@"
