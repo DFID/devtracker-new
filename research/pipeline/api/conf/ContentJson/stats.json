@@ -120,7 +120,7 @@
 	{ "code" : "AD", "totalBudget" : 0 },
 	{ "code" : "AS", "totalBudget" : 0 },
 	{ "code" : "AG", "totalBudget" : 0 },
-	{ "code" : "BD", "totalBudget" : 239050863 },
+	{ "code" : "BD", "totalBudget" : 239050863, "population":151125000, "belowPovertyLine":43.7, "fertilityRate":2.4, "gdpGrowthRate":6.21 },
 	{ "code" : "BA", "totalBudget" : 0 },
 	{ "code" : "CM", "totalBudget" : 0 },
 	{ "code" : "CG", "totalBudget" : 0 },

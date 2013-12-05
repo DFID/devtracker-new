@@ -42,7 +42,7 @@ class CountryApiClient
 		@@countryJson["stats"].each do |stat|
 		  @@totBudget = stat["totalBudget"]
 		end
-		@@totBudget
+		@@totBudget.to_f
 
 	end
 
@@ -54,20 +54,28 @@ class CountryApiClient
 		@@pop
 	end
 
-	def life_expectancy
-		@lifeExp
+	def below_poverty_line
+		@@belowPovertyLine
 		@@countryJson["stats"].each do |stat|
-			@lifeExp = stat["lifeExpectancy"]
+			@@belowPovertyLine = stat["belowPovertyLine"]
 		end
-		@lifeExp
+		@@belowPovertyLine
 	end
 
-	def income_level
-		@@income
+	def fertility_rate
+		@@fertilityRate
 		@@countryJson["stats"].each do |stat|
-			@@income = stat["incomeLevel"]
+			@@fertilityRate = stat["fertilityRate"]
 		end
-		@income
+		@@fertilityRate
+	end
+
+	def gdp_growth_rate
+		@@gdpGrowthRate
+		@@countryJson["stats"].each do |stat|
+			@@gdpGrowthRate = stat["gdpGrowthRate"]
+		end
+		@@gdpGrowthRate
 	end
 
 	def sector_hierarchies
@@ -103,7 +111,11 @@ class CountryApiClient
 	end
 
 	def dfid_total_budget
-		@@countryJson["dfidTotalBudget"].to_i
+		@@countryJson["dfidTotalBudget"].to_f
+	end
+
+	def active_projects		
+		@@countryJson["projects"]["active"]
 	end
 end
 

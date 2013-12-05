@@ -9,6 +9,7 @@ GET     /api/country/:id                    				controllers.JSONDataApi.countryW
 GET     /api/country/resultsCount/:id       				controllers.JSONDataApi.resultsCount(id)
 GET     /api/country/sectorBreakdown/:id    				controllers.Aggregator.sectorBreakdown(id)
 GET     /api/country/budget/:id             				controllers.Aggregator.countryBudget(id)
+GET     /api/country/projectStats/:id             			controllers.Aggregator.projectsStats(id)
 GET     /api/country/stats/:id              				controllers.JSONDataApi.countriesRegionsStatsWithCode(id)
 
 GET 	/api/country/projects/projectsHierarchy1ForCountryCode/:id		controllers.Aggregator.projectsHierarchy1ForCountryCode(id)
