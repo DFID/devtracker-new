@@ -54,68 +54,77 @@ package object synchroniser {
       copy(location = location)
 
     def execute = metrics.timer("download-time").time {
-      val url = "http://www.iatiregistry.org/api/1/rest/group"
+      val group = s"all"
+      val dir = mkdirp(s"$location")
+      val url = s"http://www.iatiregistry.org/api/3/action/package_list"
       val summary = json(url) match {
-          case Success(groups) => {
-            groups.convertTo[List[String]].flatMap { group =>
-              val url = s"http://www.iatiregistry.org/api/1/rest/group/$group"
-              json(url) match {
-                case Success(groupJson) => {
-                  val dir = mkdirp(s"$location/$group")
-                  val downloads = groupJson.asJsObject
-                    .fields("packages")
-                    .convertTo[List[String]]
-                    .flatMap { pkg =>
-                      val url = s"http://www.iatiregistry.org/api/1/rest/package/$pkg"
-                      json(url) match {
-                        case Success(pkgJson) => {
-                          val obj = pkgJson.asJsObject
-                          val filetype = obj.getFields("extras")
-                            .headOption
-                            .flatMap { extras =>
-                              extras.asJsObject
-                                .fields
-                                .get("filetype")
-                                .map(_.convertTo[String])
-                            }
-                            .getOrElse("activity")
-
-                          obj.fields
-                            .get("download_url")
-                            .map(_.convertTo[String])
-                            .map(escapeUrl)
-                            .map { url =>
-                              val path = s"$dir/$pkg.xml"
-                              val result = download(url, path)
-                              val valid = validate(path, filetype)
-                              val summary = if(valid) {
-                                Summary(result, url, path, group, pkg, filetype)
-                              } else {
-                                Summary(Invalid, url, path, group, pkg, filetype)
-                              }
-
-                              onResourceChange(summary)
-                              summary
-                            }
-                        }
-                        case Failure(ex) => Some(Summary(Error(ex),url,"", group, pkg, ""))
+          case Success(packageList) => {
+            val downloads = packageList.asJsObject
+              .fields("result")
+              .convertTo[List[String]]
+              .flatMap { pkg =>
+              val url = s"http://www.iatiregistry.org/api/3/action/package_show?id=$pkg"
+              println("package = " + url)
+                json(url) match {
+                  case Success(pkgJson) => {
+                    val obj = pkgJson.asJsObject
+                    val filetype = obj.getFields("extras")
+                      .headOption
+                      .flatMap { extras =>
+                        extras.asJsObject
+                          .fields
+                          .get("filetype")
+                          .map(_.convertTo[String])
                       }
-                    }
+                      .getOrElse("activity")
 
-                  val deleted = compareAndDeletePackages(dir, downloads, group)
+                    val resources = obj.getFields("resources")
+                      .headOption
+                      .flatMap { res =>
+                        res.asJsObject
+                          .getFields("url")
+                          .convertTo[List[String]]
+                      }
+                   
+                    //val res = obj.asJson
+                    println("Res = " + resources)
+                    
+                    //val res = obj.convertTo[List[String]]
+                    //val theurl = res.fields.get("url")
+                    //println("Theurl = " + theurl)
 
-                  downloads ++ deleted
-                }
-                case Failure(ex) => {
-                  val error = Summary(Error(ex),url, "", group, s"Getting packages for $group", "")
-                  onResourceChange(error)
-                  List(error)
+                    obj.fields
+                      .get("url")
+                      .map(_.convertTo[String])
+                      .map(escapeUrl)
+                      .map { url =>
+                        println("Url = " + url)
+                        val path = s"$dir/$pkg.xml"
+                        val result = download(url, path)
+                        val valid = validate(path, filetype)
+                        val summary = if(valid) {
+                          Summary(result, url, path, group, pkg, filetype)
+                          
+                        } else {
+                          Summary(Invalid, url, path, group, pkg, filetype)
+
+                        }
+
+                        onResourceChange(summary)
+                        summary
+                      }
+
+                  }
+                  case Failure(ex) => Some(Summary(Error(ex),url,"", group, pkg, ""))
                 }
               }
-            }
+
+            val deleted = compareAndDeletePackages(dir, downloads, group)
+
+            downloads ++ deleted
           }
           case Failure(ex) => {
-            val error = Summary(Error(ex), url, "", "", "Getting groups from registry", "")
+            val error = Summary(Error(ex),url, "", group, s"Getting packages", "")
             onResourceChange(error)
             List(error)
           }
@@ -124,6 +133,7 @@ package object synchroniser {
       onComplete(summary)
       summary
     }
+
 
     private def compareAndDeletePackages(dir: String, downloads: List[Summary], group: String) = {
       ls(dir)
