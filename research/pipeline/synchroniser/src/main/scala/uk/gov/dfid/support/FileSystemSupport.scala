@@ -1,4 +1,4 @@
-package uk.gov.dfid.utils
+package uk.gov.dfid.support
 
 import java.io.{File, InputStream}
 import java.nio.file.{Paths, Files}

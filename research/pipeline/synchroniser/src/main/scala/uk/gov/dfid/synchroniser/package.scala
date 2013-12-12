@@ -4,9 +4,9 @@ import spray.json.DefaultJsonProtocol._
 import scala.util.{Success, Failure, Try}
 import uk.gov.dfid.reporting.DownloadStatuses._
 import uk.gov.dfid.reporting.Summary
-import uk.gov.dfid.utils.{HttpSupport, FileSystemSupport}
 import uk.gov.dfid.synchroniser.support.Instrumented
-import uk.gov.dfid.support.IATIValidationSupport
+import uk.gov.dfid.support.{FileSystemSupport, HttpSupport, IATIValidationSupport}
+import spray.json.{JsValue, JsObject, JsArray}
 
 package object synchroniser {
 
@@ -54,88 +54,88 @@ package object synchroniser {
       copy(location = location)
 
     def execute = metrics.timer("download-time").time {
-      val group = s"all"
-      val dir = mkdirp(s"$location")
-      val url = s"http://www.iatiregistry.org/api/3/action/package_list"
-      val summary = json(url) match {
-          case Success(packageList) => {
-            val downloads = packageList.asJsObject
-              .fields("result")
-              .convertTo[List[String]]
-              .flatMap { pkg =>
-              val url = s"http://www.iatiregistry.org/api/3/action/package_show?id=$pkg"
-              println("package = " + url)
-                json(url) match {
-                  case Success(pkgJson) => {
-                    val obj = pkgJson.asJsObject
-                    val filetype = obj.getFields("extras")
-                      .headOption
-                      .flatMap { extras =>
-                        extras.asJsObject
-                          .fields
-                          .get("filetype")
-                          .map(_.convertTo[String])
-                      }
-                      .getOrElse("activity")
-
-                    val resources = obj.getFields("resources")
-                      .headOption
-                      .flatMap { res =>
-                        res.asJsObject
-                          .getFields("url")
-                          .convertTo[List[String]]
-                      }
-                   
-                    //val res = obj.asJson
-                    println("Res = " + resources)
-                    
-                    //val res = obj.convertTo[List[String]]
-                    //val theurl = res.fields.get("url")
-                    //println("Theurl = " + theurl)
-
-                    obj.fields
-                      .get("url")
-                      .map(_.convertTo[String])
-                      .map(escapeUrl)
-                      .map { url =>
-                        println("Url = " + url)
-                        val path = s"$dir/$pkg.xml"
-                        val result = download(url, path)
-                        val valid = validate(path, filetype)
-                        val summary = if(valid) {
-                          Summary(result, url, path, group, pkg, filetype)
-                          
-                        } else {
-                          Summary(Invalid, url, path, group, pkg, filetype)
-
-                        }
-
-                        onResourceChange(summary)
-                        summary
-                      }
-
-                  }
-                  case Failure(ex) => Some(Summary(Error(ex),url,"", group, pkg, ""))
-                }
-              }
-
-            val deleted = compareAndDeletePackages(dir, downloads, group)
-
-            downloads ++ deleted
-          }
-          case Failure(ex) => {
-            val error = Summary(Error(ex),url, "", group, s"Getting packages", "")
-            onResourceChange(error)
-            List(error)
-          }
-        }
+      val dir     = mkdirp(location)
+      val summary = downloadAllPackages(dir)
 
       onComplete(summary)
       summary
     }
 
+    def downloadAllPackages(dir: String) = {
+      datasets match {
+        case Success(packageList) => {
+          val downloads = packageList.flatMap(downloadPackage(_, dir))
+          val deleted   = compareAndDeletePackages(dir, downloads)
 
-    private def compareAndDeletePackages(dir: String, downloads: List[Summary], group: String) = {
+          downloads ++ deleted
+        }
+        case Failure(ex) => {
+          val error = Summary(Error(ex), urlForPackageList, "", "Getting packages", "")
+          onResourceChange(error)
+          List(error)
+        }
+      }
+    }
+
+    def downloadPackage(id: String, dir:String) = {
+      dataset(id) match {
+        case Success(results) => {
+          val fileType = fileTypeFrom(results)
+          resources(results).flatMap { resource =>
+            urlFrom(resource).map { url =>
+              val path = s"$dir/$id.xml"
+              val result = download(url, path)
+              val summaryWithResult: DownloadStatus => Summary = Summary(_, url, path, id, fileType)
+              val summary = result match {
+                case Error(_) => summaryWithResult(result)
+                case _ if validate(path, fileType) => summaryWithResult(result)
+                case _ => summaryWithResult(Invalid)
+              }
+
+              onResourceChange(summary)
+              summary
+            }
+          }
+        }
+        case Failure(ex) =>
+          val summary = Summary(Error(ex), urlForPackage(id),"", id, "")
+          onResourceChange(summary)
+          List(summary)
+      }
+    }
+    private def datasets =
+      json(urlForPackageList)
+        .map(_.asJsObject.fields("result").convertTo[List[String]])
+
+    private def dataset(id: String) =
+      json(urlForPackage(id))
+        .map(_.asJsObject.fields("result").asJsObject)
+    
+    private def urlForPackage(id: String) = s"http://www.iatiregistry.org/api/3/action/package_show?id=$id"
+
+    private def urlForPackageList = "http://www.iatiregistry.org/api/3/action/package_list"
+
+    private def fileTypeFrom(dataset: JsObject) =
+      dataset.fields("extras")
+        .convertTo[JsArray]
+        .elements
+        .map(_.asJsObject)
+        .find(_.fields.get("key").exists(_.convertTo[String] == "filetype"))
+        .map(_.fields("value").convertTo[String])
+        .getOrElse("activity")
+
+    private def resources(dataset: JsObject) =
+      dataset.fields("resources")
+        .convertTo[JsArray]
+        .elements
+
+    private def urlFrom(resource: JsValue) =
+      resource.asJsObject
+        .getFields("url")
+        .map(_.convertTo[String])
+        .map(escapeUrl)
+
+    private def compareAndDeletePackages(dir: String, downloads: List[Summary]) = {
       ls(dir)
         .filter(_.endsWith(".xml"))
         .map(dir + "/" + _)
@@ -145,7 +145,7 @@ package object synchroniser {
             .recover({ case e => Error(e) })
             .get
           val pkg = deleted.split("/").last.replaceAll("\\.xml$", "")
-          val summary = Summary(status, deleted, deleted, group, pkg, "")
+          val summary = Summary(status, deleted, deleted, pkg, "")
           onResourceChange(summary)
           summary
         }
@@ -158,7 +158,6 @@ package object synchroniser {
     }
 
     private def downloadIfNewer(url: String, path: String) = {
-
       fileLastModified(path).map { lastModifiedFile =>
         head(url) match {
           case Success(response) => {
@@ -184,26 +183,22 @@ package object synchroniser {
           }
           case Failure(ex) => Error(ex)
         }
-      }.getOrElse {
+      } getOrElse {
         downloadToFile(url, path)
       }
     }
 
     private def downloadToFile(url: String, path: String) = {
       get(url) match {
-        case Success(response) => {
+        case Success(response) =>
           response.getStatusLine.getStatusCode match {
-            case 200 => {
-              val stream = response.getEntity.getContent
-              save(stream, path)
+            case 200 =>
+              save(response.getEntity.getContent, path)
               New
-            }
             case _ => BadResponse(response)
           }
-        }
         case Failure(ex) => Error(ex)
       }
-
     }
   }
 

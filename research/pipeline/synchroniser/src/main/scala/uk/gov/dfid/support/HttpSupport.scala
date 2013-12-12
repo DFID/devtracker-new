@@ -1,13 +1,14 @@
-package uk.gov.dfid.utils
+package uk.gov.dfid.support
 
 import java.text.SimpleDateFormat
 import org.apache.http.client.methods.{HttpUriRequest, HttpHead, HttpGet}
-import org.apache.http.impl.client.DefaultHttpClient
+import org.apache.http.impl.client.{DefaultHttpRequestRetryHandler, DefaultHttpClient}
 import scala.io.Source
 import org.apache.http.HttpResponse
 import spray.json._
 import spray.json.DefaultJsonProtocol._
 import scala.util.{Success, Failure, Try}
+import java.io.IOException
 
 trait HttpSupport {
 
@@ -17,7 +18,7 @@ trait HttpSupport {
 
   protected def head[T](url: String) = executeRequest(new HttpHead(url))
 
-  protected def executeRequest(request: HttpUriRequest) = Try(clientWithTimeout.execute(request))
+  protected def executeRequest(request: HttpUriRequest) = Try(clientWithTimeout(_.execute(request)))
 
   protected def escapeUrl(urlStr: String) = {
     val url = new java.net.URL(urlStr)
@@ -43,12 +44,14 @@ trait HttpSupport {
     }
   }
 
-  private def clientWithTimeout = {
+  private def clientWithTimeout(action: DefaultHttpClient => HttpResponse) = {
     val client = new DefaultHttpClient
     client.getParams.setParameter("http.socket.timeout", 10000)
     client.getParams.setParameter("http.connection.timeout", 10000)
     client.getParams.setParameter("http.connection-manager.timeout", 10000L)
     client.getParams.setParameter("http.protocol.head-body-timeout", 10000)
-    client
+    client.setHttpRequestRetryHandler(new DefaultHttpRequestRetryHandler(0, false))
+    val response = action(client)
+    response
   }
 }

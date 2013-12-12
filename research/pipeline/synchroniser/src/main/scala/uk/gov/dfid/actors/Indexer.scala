@@ -10,8 +10,7 @@ import uk.gov.dfid.actors.Commands.ResourceChanged
 
 class Indexer extends Actor with Instrumented {
 
-  // TODO: Move credentials and port to external config. This is less of a 
-  // concern as the server is not exposed externally
+  // TODO: Move credentials and port to external config.
   lazy val session = new BaseXClient("localhost", 1984, "admin", "admin")
 
   override def preStart() {
@@ -21,7 +20,7 @@ class Indexer extends Actor with Instrumented {
 
   def receive = {
     case ResourceChanged(summary) => {
-      val indexName = s"${summary.group}/${summary.`package`}"
+      val indexName = summary.`package`
       summary.result match {
         case New        => index(indexName, summary.path)
         case Updated    => {

@@ -10,7 +10,7 @@ object IatiDownloaderBuild extends Build {
       name                 := "IATI Downloader",
       organization         := "uk.gov.dfid",
       version              := "0.1-SNAPSHOT",
-      scalaVersion         := "2.10.2",
+      scalaVersion         := "2.10.3",
       resolvers           ++= Seq(
         "spray"    at "http://repo.spray.io/",
         "typesafe" at "http://repo.typesafe.com/typesafe/releases/",
