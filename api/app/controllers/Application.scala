@@ -1,26 +1,23 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
 import basex._
 
 object Application extends Controller with BaseXSupport {
 
-  def activity = Action { request =>
+  def activity = Action.async { request =>
 
     val reporting = request.getQueryString("reporting-org").getOrElse("")
     val (start, limit) = getPage(request)
 
-    Async {
-      withSession { session =>
-        session.bind(
-          "$start"         -> start,
-          "$limit"         -> limit,
-          "$reporting-org" -> reporting
-        )
+    withSession { session =>
+      session.bind(
+        "$start"         -> start,
+        "$limit"         -> limit,
+        "$reporting-org" -> reporting
+      )
 
-        Ok(session.run("activities")).as("text/xml")
-      }
+      Ok(session.run("activities")).as("text/xml")
     }
   }
 

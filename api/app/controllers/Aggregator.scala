@@ -1,142 +1,111 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
 import basex._
-import com.typesafe.config.ConfigFactory
-import java.io.File
 import play.api.libs.json.{JsArray, Json}
 import java.util.Calendar
 import java.text.SimpleDateFormat
 import scala.io.Source
 
-/**
- * Created with IntelliJ IDEA.
- * User: endam
- * Date: 21/07/2013
- * Time: 18:25
- * To change this template use File | Settings | File Templates.
- */
 object Aggregator extends Controller with BaseXSupport {
 
   val apiRootURL = "http://localhost:9000/api/"
 
-  def countryBudget(code: String) = Action { request =>
+  def countryBudget(code: String) = Action.async { request =>
     val (start, end) = currentFinancialYear
 
-    Async {
-      withSession { session =>
-        session.bind(
-          "$country_code" -> code,
-          "$start_date" -> start,
-          "$end_date" -> end
-        )
-        Ok(session.run("country_summary/country_budget")).as("text/json")
-      }
+    withSession { session =>
+      session.bind(
+        "$country_code" -> code,
+        "$start_date" -> start,
+        "$end_date" -> end
+      )
+      Ok(session.run("country_summary/country_budget")).as("text/json")
     }
   }
 
-  def locations(code: String) = Action { request =>
-    Async {
-      withSession { session =>
-        session.bind(
-          "$country_code" -> code
-        )
-        Ok(session.run("country_summary/locations")).as("text/json")
-      }
+  def locations(code: String) = Action.async { request =>
+    withSession { session =>
+      session.bind(
+        "$country_code" -> code
+      )
+      Ok(session.run("country_summary/locations")).as("text/json")
     }
   }
 
-  def projectBudgetByYear(code: String) = Action { request =>
-    Async {
-      withSession { session =>
-        session.bind(
-          "$country_code" -> code
-        )
-        Ok(session.run("country_summary/project_budget_by_year")).as("text/json")
-      }
+  def projectBudgetByYear(code: String) = Action.async { request =>
+    withSession { session =>
+      session.bind(
+        "$country_code" -> code
+      )
+      Ok(session.run("country_summary/project_budget_by_year")).as("text/json")
     }
   }
 
-  def projectsStats(code: String) = Action { request =>
-    Async {
-      withSession { session =>
-        session.bind(
-          "$country_code" -> code
-        )
-       Ok(session.run("country_summary/projects_stats")).as("text/json")
-      }
+  def projectsStats(code: String) = Action.async { request =>
+    withSession { session =>
+      session.bind(
+        "$country_code" -> code
+      )
+     Ok(session.run("country_summary/projects_stats")).as("text/json")
     }
   }
 
-  def sectorBreakdown(code: String) = Action { request =>
-    Async {
-      withSession { session =>
-        session.bind(
-          "$country_code" -> code
-        )
-        Ok(
+  def sectorBreakdown(code: String) = Action.async { request =>
+    withSession { session =>
+      session.bind("$country_code" -> code)
+      val sectorBreakdown = session.run("country_summary/sector_breakdown")
 
-          Json.toJson(
-            Json.parse(session.run("country_summary/sector_breakdown")).asInstanceOf[JsArray].value.map(
-              x =>  Json.obj("percentage" -> x.\("percentage"))++
-                    Json.obj("sector" ->
-                              getJsonFromUrl("sectorHierarchyName/" + (x.\("code")
-                            ).toString().replaceAll("\"", "")).replaceAll("\"", "")
-                    )
-            )
-          ).toString()
-        ).as("text/json")
-      }
+      Ok(
+        // [todo] - [JH] - I have no clue what this does or why its written like this but it seems wrong to serialise, parse, transform, deserialise to string, regex replace things reparse then convert to string again.
+        Json.toJson(
+          Json.parse(sectorBreakdown).as[JsArray].value.map(
+            x =>  Json.obj("percentage" -> x.\("percentage"))++
+                  Json.obj("sector" ->
+                            getJsonFromUrl("sectorHierarchyName/" + (x.\("code")
+                          ).toString().replaceAll("\"", "")).replaceAll("\"", "")
+                  )
+          )
+        ).toString()
+      ).as("text/json")
     }
   }
 
-  def dfidCountries() = Action { request =>
-    Async {
-      withSession { session =>
-        Ok(session.run("dfid_countries")).as("text/json")
-      }
+  def dfidCountries = Action.async { request =>
+    withSession { session =>
+      Ok(session.run("dfid_countries")).as("text/json")
     }
   }
 
-  def dfidTotalBudget() = Action { request =>
-    Async {
-      withSession { session =>
-        Ok(session.run("dfid_total_budget")).as("text/json")
-      }
+  def dfidTotalBudget = Action.async { request =>
+    withSession { session =>
+      Ok(session.run("dfid_total_budget")).as("text/json")
     }
   }
 
-  def project() = Action { request =>
-    Async {
-      withSession { session =>
-        //to be changed
-        Ok(session.run("dfid_total_budget")).as("text/json")
-      }
+  def project() = Action.async { request =>
+    withSession { session =>
+      // [todo] - [??] - to be changed
+      // [todo] - [JH] - needs to be changed to what?
+      Ok(session.run("dfid_total_budget")).as("text/json")
     }
   }
 
-  def projectsHierarchy1ForCountryCode(code: String) = Action { request =>
-    Async {
-      withSession { session =>
-        Ok(session.run("countryProjects/AllH1ProjectIdsForCountryCode")).as("text/json")
-      }
+  def projectsHierarchy1ForCountryCode(code: String) = Action.async { request =>
+    withSession { session =>
+      Ok(session.run("countryProjects/AllH1ProjectIdsForCountryCode")).as("text/json")
     }
   }
 
-  def allHierarchy1Project() = Action { request =>
-    Async {
-      withSession { session =>
-        Ok(session.run("countryProjects/AllHierarchy1Projects")).as("text/json")
-      }
+  def allHierarchy1Project() = Action.async { request =>
+    withSession { session =>
+      Ok(session.run("countryProjects/AllHierarchy1Projects")).as("text/json")
     }
   }
 
-  def allDocumentsForAllProjects() = Action { request =>
-    Async {
-      withSession { session =>
-        Ok(session.run("projects/documents/allDocumentsForAllProjects")).as("text/json")
-      }
+  def allDocumentsForAllProjects() = Action.async { request =>
+    withSession { session =>
+      Ok(session.run("projects/documents/allDocumentsForAllProjects")).as("text/json")
     }
   }
 

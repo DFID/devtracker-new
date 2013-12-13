@@ -3,19 +3,16 @@ package controllers
 import play.api.mvc._
 import play.api.libs.json.{JsArray, Json}
 import play.api.libs.json.Json._
-import scala.util.parsing.combinator.RegexParsers
 import scala.io._
-import scala.util.parsing.json.JSONArray
-import scala.util.Try
 
 
 object JSONDataReader extends Controller {
   def countries() = {
-    Json.parse(Source.fromFile("conf/ContentJson/countries.json").getLines().toList.reduce(_+_))
+    Json.parse(Source.fromFile("conf/ContentJson/countries.json").mkString)
   }
 
   def sectorHierarchies() = {
-    Json.parse(Source.fromFile("conf/ContentJson/sector-hierarchies.json").getLines().toList.reduce(_+_))
+    Json.parse(Source.fromFile("conf/ContentJson/sector-hierarchies.json").mkString)
   }
 
   def sectorHierarchiesWithCode(code: String) = {
@@ -29,7 +26,7 @@ object JSONDataReader extends Controller {
     if(sector.isEmpty)
       "Other"
     else
-      (sector(0).\("highLevelName"))
+      sector(0) \ "highLevelName"
   }
   
   def countryWithCode(code: String) = {
@@ -37,14 +34,14 @@ object JSONDataReader extends Controller {
   }
 
   def countriesRegionsStatsWithCode(code: String) = {
-    val stats = Json.parse(Source.fromFile("conf/ContentJson/stats.json").getLines().toList.reduce(_+_))
+    val stats = Json.parse(Source.fromFile("conf/ContentJson/stats.json").mkString)
     val statsWithCountryCode = stats.asInstanceOf[JsArray].value.filter(c => (c \ "code").asOpt[String] == Some(code))
     Json.obj("stats" -> statsWithCountryCode)
   }
 
   def resultsCount(code: String) = {
-    val js = Json.parse(Source.fromFile("conf/ContentJson/results.json").getLines().toList.reduce(_+_))
-    val count = js.asInstanceOf[JsArray].value.filter(c => (c \ "code").asOpt[String] == Some(code)).size
+    val js = Json.parse(Source.fromFile("conf/ContentJson/results.json").mkString)
+    val count = js.asInstanceOf[JsArray].value.count(c => (c \ "code").asOpt[String] == Some(code))
     Json.obj("resultsCount" -> count)
   }
 }

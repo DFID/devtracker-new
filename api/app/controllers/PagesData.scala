@@ -1,9 +1,7 @@
 package controllers
 
-  import play.api.mvc._
-  import scala.concurrent.Future
-  import play.api.libs.concurrent.Execution.Implicits._
-  import play.api.libs.json._
+import play.api.mvc._
+import play.api.libs.json._
 import scala.io.Source
 
 object PagesData extends Controller {
@@ -15,63 +13,31 @@ object PagesData extends Controller {
   }
 
   def countryPageData(code: String) = {
-        Json.parse(getJsonFromUrl("country/" + code)).asInstanceOf[JsObject]++
-        Json.parse(getJsonFromUrl("country/budget/" + code)).asInstanceOf[JsObject]++
-        Json.parse(getJsonFromUrl("country/resultsCount/" + code)).asInstanceOf[JsObject]++
-        Json.parse(getJsonFromUrl("country/stats/" + code)).asInstanceOf[JsObject]++
-        Json.obj("SectorBreakdown" -> Json.parse(getJsonFromUrl("country/sectorBreakdown/" + code)))++
-        Json.obj("locations" -> Json.parse(getJsonFromUrl("country/locations/" + code)))++
-        Json.obj("ProjectBudgetsByYear" -> Json.parse(getJsonFromUrl("country/projectBudgetsByYear/" + code)))++
-        Json.parse(getJsonFromUrl("dfidTotalBudget")).asInstanceOf[JsObject]
+    // [fix] - [JH] - This code has a funky smell to it
+    Json.parse(getJsonFromUrl("country/" + code)).asInstanceOf[JsObject]++
+    Json.parse(getJsonFromUrl("country/budget/" + code)).asInstanceOf[JsObject]++
+    Json.parse(getJsonFromUrl("country/resultsCount/" + code)).asInstanceOf[JsObject]++
+    Json.parse(getJsonFromUrl("country/stats/" + code)).asInstanceOf[JsObject]++
+    Json.obj("SectorBreakdown" -> Json.parse(getJsonFromUrl("country/sectorBreakdown/" + code)))++
+    Json.obj("locations" -> Json.parse(getJsonFromUrl("country/locations/" + code)))++
+    Json.obj("ProjectBudgetsByYear" -> Json.parse(getJsonFromUrl("country/projectBudgetsByYear/" + code)))++
+    Json.parse(getJsonFromUrl("dfidTotalBudget")).asInstanceOf[JsObject]
   }
 
+  // [fix] - [JH] - This code was left incomplete
   def countryProjectsPageData(code: String) = {
-
     val allH1ProjectCodes = Json.parse(getJsonFromUrl("country/projects/projectsHierarchy1ForCountryCode/" + code)).asInstanceOf[JsArray]
-
     val allH1Projects = Json.parse(getJsonFromUrl("country/projects/allHierarchy1Project/")).asInstanceOf[JsArray]
-
-    //filterAllH1Projects(allH1Projects, allH1ProjectCodes)
-
   }
 
   def allDocumentsForAllProjects() = {
     Json.parse(getJsonFromUrl("projects/documents"))
   }
 
+  // [fix] - [JH] - This seems like an extremely insecure way to handle loading of file and such
+  // [review] - [JH] - getJsonFromUrl returns a string and then the JSON is being parsed outside the call  which seems odd
   def getJsonFromUrl(apiExtention: String) = {
     val url = new java.net.URL(apiRootURL + apiExtention)
-    Source.fromInputStream(url.openStream).getLines.mkString("\n")
+    Source.fromInputStream(url.openStream).mkString("\n")
   }
-
-  // def filterAllH1Projects(allH1Projects: JsArray, allH1Ids: JsArray) =  {
-  //   Logger.info("before = " )
-  //   val result = allH1Ids.value.map(h => {
-        
-  //       val projectForId = allH1Projects.value.filter(t => (t \ "iati-id") == h)(0).asInstanceOf[JsObject]
-  //       projectForId
-        
-  //     }
-  //   )
-
-  //   result
-  //   //.reduce(_++_).toString()
-  // }
-
-
-  // def combineJson() = {
-  //   val processedBaseData = processBasicJsonString().value
-  //   val processedBudget = processBudgetsJsonString().value
-  //   val processedComponents = processComponentsJsonString().value
-  //   processedBaseData.map( j => {
-  //       val base = j.asInstanceOf[JsObject]
-
-  //       val id = (base \ "id")
-  //       val basesbudget = processedBudget.filter( b => (b \ "id") == id )(0).asInstanceOf[JsObject]
-  //       val basesComponent = processedComponents.filter(c => (c \ "id") == id)(0).asInstanceOf[JsObject]
-
-  //       base++basesbudget++basesComponent
-  //     }
-  //   )
-  // }
 }
