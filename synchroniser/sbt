@@ -22,20 +22,4 @@ fi
 
 test -f ~/.sbtconfig && . ~/.sbtconfig
 
-java -ea                          \
-  $SBT_OPTS                       \
-  $JAVA_OPTS                      \
-  -Djava.net.preferIPv4Stack=true \
-  -XX:+AggressiveOpts             \
-  -XX:+UseParNewGC                \
-  -XX:+UseConcMarkSweepGC         \
-  -XX:+CMSParallelRemarkEnabled   \
-  -XX:+CMSClassUnloadingEnabled   \
-  -XX:MaxPermSize=1024m           \
-  -XX:SurvivorRatio=128           \
-  -XX:MaxTenuringThreshold=0      \
-  -Xss8M                          \
-  -Xms512M                        \
-  -Xmx1G                          \
-  -server                         \
-  -jar $sbtjar "$@"
+exec java -Xmx1g -XX:MaxPermSize=1024m -jar $sbtjar "$@"
