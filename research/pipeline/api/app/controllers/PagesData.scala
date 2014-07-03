@@ -19,6 +19,7 @@ object PagesData extends Controller {
         Json.parse(getJsonFromUrl("country/budget/" + code)).asInstanceOf[JsObject]++
         Json.parse(getJsonFromUrl("country/resultsCount/" + code)).asInstanceOf[JsObject]++
         Json.parse(getJsonFromUrl("country/stats/" + code)).asInstanceOf[JsObject]++
+        Json.parse(getJsonFromUrl("country/projectStats/" + code)).asInstanceOf[JsObject]++
         Json.obj("SectorBreakdown" -> Json.parse(getJsonFromUrl("country/sectorBreakdown/" + code)))++
         Json.obj("locations" -> Json.parse(getJsonFromUrl("country/locations/" + code)))++
         Json.obj("ProjectBudgetsByYear" -> Json.parse(getJsonFromUrl("country/projectBudgetsByYear/" + code)))++
